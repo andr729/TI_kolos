@@ -117,6 +117,30 @@ $$
 $$
 (4 - 6\log(3)) + (n-4)\log(n-4) - (n-6)\log(n-6) > 0
 $$
+% $$
+% (4 - 6\log(3)) + (n-4)\log(n-4) > (n-6)\log(n-6)
+% $$
+Teraz możemy zauważyć, że dla $n > 10$:
+\begin{align*}
+	(4 - 6\log(3)) + (n-4)\log(n-4) - (n-6)\log(n-6) > \\
+	(4 - 6\log(3)) + (n-4)\log(n-4) - (n-6)\log(n-4) = \\
+	(4 - 6\log(3)) + 2\log(n-4) > 0.
+\end{align*}
+
+Dla pozostałych przypadków: $n=8$, $n=9$, $n=10$, możemy sprawdzić, że również zachodzi $I_{33}(n) - I_{22}(n) > 0$.
+
+\subsection*{Podsumowanie}
+
+Dla $n=7$ więcej informacji da nam zawrzenie dwóch przeciw dwóm motetom.
+
+Dla $n>7$ więcej informacji da nam zawrzenie trzech przeciw trzem motetom.
 
 
 \end{document}
+
+% from math import log2
+% i33 = lambda n: log2(n) - (6*log2(3) + (n-6)*log2(n-6)) /(n)
+% i22 = lambda n: log2(n) - (4 + (n-4)*log2(n-4))/(n)
+% diff = lambda n: i33(n) - i22(n)
+  
+
