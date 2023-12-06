@@ -1,0 +1,45 @@
+\documentclass[final,12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage[polish,english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{url}
+\usepackage{xspace}
+\usepackage[pdftex]{graphicx}
+\usepackage[pdftex]{color}
+
+\usepackage{adjustbox}
+
+
+% \definecolor{azure}{rgb}{0.0, 0.5, 0.0}
+% \definecolor{processblue}{cmyk}{0.96,0,0,0}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+\DeclarePairedDelimiter\set{\{}{\}}%
+\DeclarePairedDelimiter\tuple{\langle}{\rangle}%
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+%
+\let\oldset\set
+\def\set{\@ifstar{\oldset}{\oldset*}}
+%
+\let\oldtuple\tuple
+\def\tuple{\@ifstar{\oldtuple}{\oldtuple*}}
+%
+\makeatother
+%
+

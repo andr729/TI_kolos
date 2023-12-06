@@ -1,0 +1,122 @@
+\include{../lib.tex}
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\noindent
+
+{\bf Teoria informacji 2023/24. Kolokwium -- Zadanie 1}
+
+Andrzej Radzimiński, ar429586
+\\
+
+\ \\
+
+Rozpatrzmy przypadek dla $n$ monet ($n \geq 7$).
+
+Niech $M$ oznacza zmienną losową reprezentującą to, która moneta jest lżejsza:
+$$
+	M \in \set{1, 2, 3, 4, \ldots, n}.
+$$
+
+Niech $W$ oznacza zmienną losową reprezentującą to, czy waga przechyliła się w lewo, w prawo czy pozostała wyrównana:
+$$
+	W \in \set{L, R, E}.
+$$
+
+Bez straty ogólności, możemy przyjąć że ważone są odpowiednio monety $1,2,3 \text{ vs } 3,4,6$ lub $1,2 \text{ vs } 3,4$.
+
+Interesuje nas teraz informacja, o tym w którym przypadku większe jest:
+$$
+	I(M, W) = H(W) + H(M) - H(W,M).
+$$
+Najpierw zauważmy, że $W$ jest jednoznacznie zdeterminowana przez $M$, zatem:
+$$
+	H(W,M) = H(M),
+$$
+z czego wynika:
+$$
+	I(M, W) = H(W) + H(M) - H(W,M) = H(W).
+$$
+
+Wiadomo, że:
+$$
+	H(W) = p(L) \cdot \log(1/p(L)) + p(R) \cdot \log(1/p(R)) + p(E) \cdot \log(1/p(E)).
+$$
+Dodatkowo, możemy zauważyć, że $p(L) = P(R)$, co dodatkowo uprasza wzór, do:
+$$
+	H(W) = 2 \cdot p(L) \cdot \log(1/p(L)) + p(E) \cdot \log(1/p(E)).
+$$
+
+\subsection*{Ważenie trzech v trzech monet}
+
+W tym przypadku $P(L) = 3/n$, $P(E) = (n-6)/n$, zatem:
+\begin{align*}
+	H(W) = 2 \cdot \frac{3}{n} \cdot \log(\frac{n}{3}) + \frac{n-6}{n} \cdot \log(\frac{n}{n-6}) =\\
+	\frac{6}{n} \cdot (\log(n) - \log(3)) + \frac{n-6}{n}\cdot (\log(n)-\log(n-6)) = \\
+	\log(n) - \frac{6\log(3) + (n-6)\log(n-6)}{n}
+	% = \\
+	% -\frac{6\log(3) - 6\log(n-6)}{n} = \\
+	% \frac{6\log(n-6) - 6\log(3)}{n} = \\
+	% \frac{6}{n}(\log(n-6) - \log(3))
+\end{align*}
+
+Oznaczmy wynik jako:
+$$
+	I_{33}(n) = \log(n) - \frac{6\log(3) + (n-6)\log(n-6)}{n}.
+$$
+
+\subsection*{Ważenie dwóch v dwóch monet}
+
+W tym przypadku $P(L) = 2/n$, $P(E) = (n-4)/n$, zatem:
+\begin{align}
+	H(W) = 2 \cdot \frac{2}{n} \cdot \log(\frac{n}{2}) + \frac{n-4}{n} \cdot \log(\frac{n}{n-4}) =\\
+	\frac{4}{n} \cdot (\log(n) - \log(2)) + \frac{n-4}{n}\cdot(\log(n) - \log)(n-4) = \\
+	\log(n) - \frac{4 + (n-4)\log(n-4)}{n}
+	% = \\
+	% -\frac{4 - 4\log(n-4)}{n} = \\
+	% \frac{4\log(n-4) - 4}{n} = \\
+	% \frac{4}{n}(\log(n-4) - 1)
+\end{align}
+
+Oznaczmy wynik jako:
+$$
+	I_{22}(n) = \log(n) - \frac{4 + (n-4)\log(n-4)}{n}.
+$$
+
+\subsection*{$7$ monet}
+Dla siedmiu monet:
+$$
+	I_{33}(7) \approx 1.4488156357251847,
+$$
+$$
+	I_{22}(7) \approx 1.556656707462823,
+$$
+zatem więcej informacji otrzymujemy ważąc dwie przeciw dwóm monetom.
+
+\subsection*{Przypadek ogólny}
+Rozpatrzmy równanie:
+$$
+	I_{33}(n) - I_{22}(n) > 0.
+$$
+Przekształcając równoważnie otrzymujemy:
+$$
+\log(n) - \frac{6\log(3) + (n-6)\log(n-6)}{n} - \log(n) + \frac{4 + (n-4)\log(n-4)}{n} > 0
+$$
+$$
+ - \frac{6\log(3) + (n-6)\log(n-6)}{n} + \frac{4 + (n-4)\log(n-4)}{n} > 0
+$$
+$$
+ -(6\log(3) + (n-6)\log(n-6)) + (4 + (n-4)\log(n-4)) > 0
+$$
+$$
+(4 + (n-4)\log(n-4))-(6\log(3) + (n-6)\log(n-6)) > 0
+$$
+$$
+4 + (n-4)\log(n-4) - 6\log(3) - (n-6)\log(n-6) > 0
+$$
+$$
+(4 - 6\log(3)) + (n-4)\log(n-4) - (n-6)\log(n-6) > 0
+$$
+
+
+\end{document}
