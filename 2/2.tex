@@ -62,9 +62,26 @@ Wiadomo, że $H(f(x) | x) = 0$, a więc $f(x)$ może został w pełni zawarte na
 
 Teraz możemy zdefiniować $\alpha, \beta, \gamma, \lambda$:
 \begin{itemize}
-	\item $\lambda = I(f(x) ; f(y) | z)$ 
-	\item $\gamma = I(x ; y | f(x), f(y))$ 
+	\item $\lambda = I(f(x) ; g(y) | z)$
+	\item $\gamma = I(x ; y | f(x), g(y), z)$
+	\item $\alpha = I(f(x) ; y | g(y), z)$
+	\item $\beta = I(g(y) ; x | f(x), z)$
 \end{itemize}
+
+Jednocześnie zachodzi:
+$$
+	I(x; y|z) = \alpha + \beta + \gamma + \lambda,
+$$
+oraz
+$$
+	I(f(x) ; g(y) | z) = \lambda,
+$$
+z czego wynika:
+\begin{multline*}
+	I(x ; y | z) - I(f(x) ; g(y) | z) = \alpha + \beta + \gamma = \\
+	I(f(x) ; y | g(y), z) + I(g(y) ; x | f(x), z) + I(x ; y | f(x), g(y), z).
+\end{multline*}
+Równanie to jest tym samym równaniem co $(2)$, co kończy dowód.
 
 % $$
 % H(f(x) , z) + H(g(y) , z) - H(f(x), g(y) , z) - H(z) \leq
