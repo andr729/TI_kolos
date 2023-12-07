@@ -83,6 +83,36 @@ z czego wynika:
 \end{multline*}
 Równanie to jest tym samym równaniem co $(2)$, co kończy dowód.
 
+
+\subsection*{Przykład, dla którego zachodzi nierówność:}
+$$
+	I(f(X); g(Y) | Z) < I(f(X); Y | Z) < I(X; Y | Z).
+$$
+
+Niech $Z$ będzie zmienną losową przyjmującą jedynie jedną wartość.
+Wtedy nierówność upraszcza się, do
+$$
+	I(f(X); g(Y)) < I(f(X); Y) < I(X; Y).
+$$
+Niech $x \in \set{1, 2, \ldots, 8}$ będzie zmienną losową o równomiernym rozkładzie. 
+
+Niech $y = x$ ($y$ przyjmuje zawsze tą samą wartość co $x$).
+
+Niech $f(x) = x \mod 4$.
+
+Niech $g(y) = y \mod 2$.
+
+Wtedy:
+$$
+I(X; Y) = I(X; X) = H(X) = 3,
+$$
+$$
+I(f(X); Y) = I(f(X); X) = H(f(X)) = 2,
+$$
+$$
+I(f(X); g(Y)) = I(f(X); g(Y)) = H(g(Y)) = 1.
+$$
+
 % $$
 % H(f(x) , z) + H(g(y) , z) - H(f(x), g(y) , z) - H(z) \leq
 % H(x , z) + H(y , z) - H(x, y , z) - H(z)
