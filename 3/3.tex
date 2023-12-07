@@ -39,13 +39,15 @@ Pokażę, że kanał $M$ posiada większą przepustowość.
 
 Oznaczmy wejście kanału jako $A$ i wyjście kanału jako $B$.\\
 
-Policzmy najpierw przepustowość kanału $K$:
+\subsection*{Kanał $K$}
+
+Policzmy oszacujmy przepustowość kanału $K$:
 $$
 	C_K = \max_{A} I(A; B).
 $$
 
 Oznaczmy prawdopodobieństwo kolejnych "wejść" kanału jako
-$p_0, p_1, p_2, p_3$.
+$p_0, p_1, p_2, p_3$ (odpowiednio dla kolejnych wierszy od góry).
 
 Teraz:
 $$
@@ -74,7 +76,38 @@ Zatem:
 
 Funkcja $(1-x)\cdot \log(1/(1-x))$ przyjmuje na przedziale $[0, 1]$ maksimum w punkcje $x = 1 - 1/e$, które wynosi:
 $$
-q
+	1 / (3 \cdot \log_e 2),
 $$
+a więc:
+$$
+	I(A; B) =
+	\frac{1}{3}\sum_{i} (1-p_{i})\log\left(\frac{1}{1-p_{i}}\right) <
+	\frac{1}{3} \cdot 4 \cdot (1 / (3 \cdot \log_e 2)) =
+	\frac{4}{9\log_e 2} < 1.
+$$
+
+Wiemy więc, że przepustowość kanału $K$ jest mniejsza od $1$.
+
+\subsection*{Kanał $M$}
+
+Możemy zauważyć, że przepustowość kanału $M$ wynosi co najmniej $1$, co możemy uzyskać, dla rozkładu:
+$$
+p_0 = 0, \ \  \ \ 
+p_1 = 1/2, \ \  \ \ 
+p_2 = 1/2, \ \  \ \ 
+p_3 = 0.
+$$
+Wtedy $A$ jest jednoznacznie wyznaczone przez $B$, a więc:
+$$
+	I(A; B) = H(A) = 1.
+$$
+
+\subsection*{Podsumowanie}
+
+Pokazaliśmy, że:
+$$
+	C_K < 1, \ \ \ \ \ \ C_M \geq 1,
+$$
+więc przepustowość kanału $M$ jest większa od przepustowości kanału $K$.
 
 \end{document}
