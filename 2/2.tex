@@ -1,0 +1,63 @@
+\include{../lib.tex}
+
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\noindent
+
+{\bf Teoria informacji 2023/24. Kolokwium -- Zadanie 2}
+
+Andrzej Radzimiński, ar429586
+\\
+
+\ \\
+
+\newcommand{\ot}{\frac{1}{3}}
+\newcommand{\twt}{\frac{2}{3}}
+
+\renewcommand*{\arraystretch}{1.5}
+
+% Przekształcając równoważnie:
+Chcemy udowodnić:
+\begin{equation}
+	I(f(x) ; g(y) | z) \leq I(x ; y | z),
+\end{equation}
+równoważnie:
+$$
+	0 \leq I(x ; y | z) - I(f(x) ; g(y) | z).
+$$
+
+Pokażę, że:
+\begin{multline}
+	I(x ; y | z) - I(f(x) ; g(y) | z) = \\
+	H(x, y | g(x), g(y), z) +
+	I(g(y) ; x | f(x), z) +
+	I(f(x) ; y | g(y), z).
+\end{multline}
+Jako, że każdy element po lewej stronie równania $(2)$ jest nieujemny (``joint conditional entropy'' oraz ``conditional mutual information'' są zawsze nieujemne), to dowiedzie do $(1)$.
+
+\subsection*{Dowód:}
+
+Obrazek (dla ułatwienia czytelności f):
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=160mm]{obrazek.jpg}
+	% \caption{A simple caption \label{overflow}}
+\end{figure}
+
+% $$
+% H(f(x) , z) + H(g(y) , z) - H(f(x), g(y) , z) - H(z) \leq
+% H(x , z) + H(y , z) - H(x, y , z) - H(z)
+% $$
+% $$
+% H(f(x) , z) + H(g(y) , z) - H(f(x), g(y) , z) \leq
+% H(x , z) + H(y , z) - H(x, y , z)
+% $$
+% $$
+% H(f(x) , z) + H(g(y) , z) + H(x, y , z) \leq
+% H(x , z) + H(y , z) + H(f(x), g(y) , z)
+% $$
+
+
+\end{document}
