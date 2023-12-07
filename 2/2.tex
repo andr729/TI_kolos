@@ -30,7 +30,7 @@ $$
 Pokażę, że:
 \begin{multline}
 	I(x ; y | z) - I(f(x) ; g(y) | z) = \\
-	H(x, y | g(x), g(y), z) +
+	I(x ; y | g(x), g(y), z) +
 	I(g(y) ; x | f(x), z) +
 	I(f(x) ; y | g(y), z).
 \end{multline}
@@ -38,13 +38,33 @@ Jako, że każdy element po lewej stronie równania $(2)$ jest nieujemny (``join
 
 \subsection*{Dowód:}
 
-Obrazek (dla ułatwienia czytelności f):
+Dowód "przez obrazek":
 
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[width=160mm]{obrazek.jpg}
 	% \caption{A simple caption \label{overflow}}
 \end{figure}
+
+\newpage
+\textbf{Legenda:}
+
+\begin{itemize}
+	\item Duże kółka odpowiadają odpowiednio $x$ i $y$.
+	\item Małe kółka (wewnętrzne) odpowiadają odpowiednio $f(x)$ i $f(x)$.
+	\item Zakreskowane części odpowiadają zmiennej $z$ (fragment $z$ niezależny od $x$, $y$ został pominięty dla czytelności).
+	\item $\alpha, \beta, \gamma, \lambda$ reprezentują najmniejsze obszary w których się zawierają (bez zakreskowanych obszarów).
+\end{itemize}
+
+\textbf{Wyjaśnienie:}
+
+Wiadomo, że $H(f(x) | x) = 0$, a więc $f(x)$ może został w pełni zawarte na obrazku wewnątrz $x$ (analogicznie dla $y$).
+
+Teraz możemy zdefiniować $\alpha, \beta, \gamma, \lambda$:
+\begin{itemize}
+	\item $\lambda = I(f(x) ; f(y) | z)$ 
+	\item $\gamma = I(x ; y | f(x), f(y))$ 
+\end{itemize}
 
 % $$
 % H(f(x) , z) + H(g(y) , z) - H(f(x), g(y) , z) - H(z) \leq
