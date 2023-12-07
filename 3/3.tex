@@ -18,7 +18,7 @@ Andrzej Radzimiński, ar429586
 
 Dane są kanały, reprezentowane macierzami:
 $$
-A =
+K \equiv
 \begin{pmatrix}
 	0   & \ot & \ot & \ot \\
 	\ot & 0   & \ot & \ot \\
@@ -26,7 +26,7 @@ A =
 	\ot & \ot & \ot & 0   \\
 \end{pmatrix}
 \ \ \ \ \ \ \ \ \ \  
-B = 
+M \equiv 
 \begin{pmatrix}
 	0   & \ot & \ot & \ot \\
 	0   & 0   & \ot & \twt \\
@@ -35,7 +35,30 @@ B =
 \end{pmatrix}
 $$
 
-Pokażę, że kanał $B$ posiada większą przepustowość.
+Pokażę, że kanał $M$ posiada większą przepustowość.
 
+Oznaczmy wejście kanału jako $A$ i wyjście kanału jako $B$.\\
+
+Policzmy najpierw przepustowość kanału $K$:
+$$
+	C_K = \max_{A} I(A; B).
+$$
+
+Oznaczmy prawdopodobieństwo kolejnych "wejść" kanału jako
+$p_0, p_1, p_2, p_3$.
+
+Teraz:
+$$
+	I(A; B) = H(B) - H(B | A).
+$$
+\begin{multline*}
+	H(B) =
+	\sum_{i} \frac{(1-p_{i})}{3} \cdot \log\left(\frac{3}{(1-p_{i})} \right) = \\
+	\sum_{i} \frac{(1-p_{i})}{3} \cdot \left(\log(3) - \log(1-p_{i}) \right) = \\
+	\sum_{i} \frac{(1-p_{i})}{3}\log(3) - \sum_{i} \frac{(1-p_{i})}{3}\log(1-p_{i}) = \\
+	\frac{\log(3)}{3} \sum_{i} (1-p_{i}) - \frac{1}{3}\sum_{i} (1-p_{i})\log(1-p_{i}) = \\
+	\frac{\log(3)}{3} \cdot 3 - \frac{1}{3}\sum_{i} (1-p_{i})\log(1-p_{i}) = \\
+	\log(3) - \frac{1}{3}\sum_{i} (1-p_{i})\log(1-p_{i}) = \\ ...
+\end{multline*}
 
 \end{document}
