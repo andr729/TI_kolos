@@ -20,19 +20,19 @@ Andrzej Radzimiński, ar429586
 % Przekształcając równoważnie:
 Chcemy udowodnić:
 \begin{equation}
-	I(f(x) ; g(y) | z) \leq I(x ; y | z),
+	I(f(X) ; g(Y) | Z) \leq I(X ; Y | Z),
 \end{equation}
 równoważnie:
 $$
-	0 \leq I(x ; y | z) - I(f(x) ; g(y) | z).
+	0 \leq I(X ; Y | Z) - I(f(X) ; g(Y) | Z).
 $$
 
 Pokażę, że:
 \begin{multline}
-	I(x ; y | z) - I(f(x) ; g(y) | z) = \\
-	I(x ; y | g(x), g(y), z) +
-	I(g(y) ; x | f(x), z) +
-	I(f(x) ; y | g(y), z).
+	I(X ; Y | Z) - I(f(X) ; g(Y) | Z) = \\
+	I(X ; Y | g(X), g(Y), Z) +
+	I(g(Y) ; X | f(X), Z) +
+	I(f(X) ; Y | g(Y), Z).
 \end{multline}
 Jako, że każdy element po lewej stronie równania $(2)$ jest nieujemny (``joint conditional entropy'' oraz ``conditional mutual information'' są zawsze nieujemne), to dowiedzie do $(1)$.
 
@@ -50,36 +50,36 @@ Dowód "przez obrazek":
 \textbf{Legenda:}
 
 \begin{itemize}
-	\item Duże kółka odpowiadają odpowiednio $x$ i $y$.
-	\item Małe kółka (wewnętrzne) odpowiadają odpowiednio $f(x)$ i $f(x)$.
-	\item Zakreskowane części odpowiadają zmiennej $z$ (fragment $z$ niezależny od $x$, $y$ został pominięty dla czytelności).
+	\item Duże kółka odpowiadają odpowiednio $X$ i $Y$.
+	\item Małe kółka (wewnętrzne) odpowiadają odpowiednio $f(X)$ i $g(Y)$.
+	\item Zakreskowane części odpowiadają zmiennej $Z$ (fragment $Z$ niezależny od $X$, $Y$ został pominięty dla czytelności).
 	\item $\alpha, \beta, \gamma, \lambda$ reprezentują najmniejsze obszary w których się zawierają (bez zakreskowanych obszarów).
 \end{itemize}
 
 \textbf{Wyjaśnienie:}
 
-Wiadomo, że $H(f(x) | x) = 0$, a więc $f(x)$ może został w pełni zawarte na obrazku wewnątrz $x$ (analogicznie dla $y$).
+Wiadomo, że $H(f(X) | X) = 0$, a więc $f(X)$ może został w pełni zawarte na obrazku wewnątrz $X$ (analogicznie dla $Y$).
 
 Teraz możemy zdefiniować $\alpha, \beta, \gamma, \lambda$:
 \begin{itemize}
-	\item $\lambda = I(f(x) ; g(y) | z)$
-	\item $\gamma = I(x ; y | f(x), g(y), z)$
-	\item $\alpha = I(f(x) ; y | g(y), z)$
-	\item $\beta = I(g(y) ; x | f(x), z)$
+	\item $\lambda = I(f(X) ; g(Y) | Z)$
+	\item $\gamma = I(X ; Y | f(X), g(Y), Z)$
+	\item $\alpha = I(f(X) ; Y | g(Y), Z)$
+	\item $\beta = I(g(Y) ; X | f(X), Z)$
 \end{itemize}
 
 Jednocześnie zachodzi:
 $$
-	I(x; y|z) = \alpha + \beta + \gamma + \lambda,
+	I(X; Y|Z) = \alpha + \beta + \gamma + \lambda,
 $$
 oraz
 $$
-	I(f(x) ; g(y) | z) = \lambda,
+	I(f(X) ; g(Y) | Z) = \lambda,
 $$
-z czego wynika:
+Z czego wynika:
 \begin{multline*}
-	I(x ; y | z) - I(f(x) ; g(y) | z) = \alpha + \beta + \gamma = \\
-	I(f(x) ; y | g(y), z) + I(g(y) ; x | f(x), z) + I(x ; y | f(x), g(y), z).
+	I(X ; Y | Z) - I(f(X) ; g(Y) | Z) = \alpha + \beta + \gamma = \\
+	I(f(X) ; Y | g(Y), Z) + I(g(Y) ; X | f(X), Z) + I(X ; Y | f(X), g(Y), Z).
 \end{multline*}
 Równanie to jest tym samym równaniem co $(2)$, co kończy dowód.
 
@@ -94,9 +94,9 @@ Wtedy nierówność upraszcza się, do
 $$
 	I(f(X); g(Y)) < I(f(X); Y) < I(X; Y).
 $$
-Niech $x \in \set{1, 2, \ldots, 8}$ będzie zmienną losową o równomiernym rozkładzie. 
+Niech $X \in \set{1, 2, \ldots, 8}$ będzie zmienną losową o równomiernym rozkładzie. 
 
-Niech $y = x$ ($y$ przyjmuje zawsze tą samą wartość co $x$).
+Niech $Y = X$ ($Y$ przyjmuje zawsze tą samą wartość co $X$).
 
 Niech $f(x) = x \mod 4$.
 
@@ -114,16 +114,16 @@ I(f(X); g(Y)) = I(f(X); g(Y)) = H(g(Y)) = 1.
 $$
 
 % $$
-% H(f(x) , z) + H(g(y) , z) - H(f(x), g(y) , z) - H(z) \leq
-% H(x , z) + H(y , z) - H(x, y , z) - H(z)
+% H(f(X) , Z) + H(g(Y) , Z) - H(f(x), g(Y) , Z) - H(Z) \leq
+% H(x , Z) + H(Y , Z) - H(x, Y , Z) - H(Z)
 % $$
 % $$
-% H(f(x) , z) + H(g(y) , z) - H(f(x), g(y) , z) \leq
-% H(x , z) + H(y , z) - H(x, y , z)
+% H(f(x) , Z) + H(g(Y) , Z) - H(f(x), g(Y) , Z) \leq
+% H(x , Z) + H(Y , Z) - H(x, Y , Z)
 % $$
 % $$
-% H(f(x) , z) + H(g(y) , z) + H(x, y , z) \leq
-% H(x , z) + H(y , z) + H(f(x), g(y) , z)
+% H(f(x) , Z) + H(g(Y) , Z) + H(x, Y , Z) \leq
+% H(x , Z) + H(Y , Z) + H(f(x), g(Y) , Z)
 % $$
 
 
